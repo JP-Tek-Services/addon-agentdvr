@@ -2,9 +2,10 @@
 name: 'Build and Publish'
 
 on:
-  pull_request:
+  push:
     branches:
       - master
+
 jobs:
   build_publish:
     name: Publish
@@ -21,7 +22,6 @@ jobs:
       uses: home-assistant/builder@master
       with:
         args: |
-          --test \
           --all \
           --target /data \
           --docker-hub jptekservices \
