@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  publish:
+  build_publish:
     name: Publish
     runs-on: ubuntu-latest
     steps:
