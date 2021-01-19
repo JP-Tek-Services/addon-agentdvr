@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - dev
+    paths:
+        - 'agentdvr/**'
+        - '.github/workflows/**'
+        
 jobs:
   build:
     name: Test build
