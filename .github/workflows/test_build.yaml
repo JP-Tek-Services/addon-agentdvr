@@ -21,7 +21,8 @@ jobs:
       with:
         args: |
           --test \
-          --all \
+          --amd64 \
+          --i386 \
           --target /data \
           --docker-hub jptekservices \
           --branch dev \

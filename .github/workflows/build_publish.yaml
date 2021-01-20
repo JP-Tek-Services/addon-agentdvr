@@ -25,7 +25,8 @@ jobs:
       uses: home-assistant/builder@master
       with:
         args: |
-          --all \
+          --amd64 \
+          --i386 \
           --target /data \
           --docker-hub jptekservices \
           --branch master \

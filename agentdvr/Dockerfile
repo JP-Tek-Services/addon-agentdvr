@@ -3,18 +3,22 @@ FROM $BUILD_FROM
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-
 ARG BUILD_ARCH
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 #Install Prereqs
-RUN apt-get update && apt-get install -y curl wget && apt-get install -y software-properties-common && apt-get install -y unzip && apt-get -y install tzdata
+RUN apt-get clean && apt-get update && apt-get install -y curl \
+    wget \
+    software-properties-common \
+    unzip \
+    tzdata
 
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && dpkg -i packages-microsoft-prod.deb
 
 #Install .NET and SDK Runtimeon Linux
 
 RUN wget https://dot.net/v1/dotnet-install.sh && chmod +x dotnet-install.sh && /bin/bash ./dotnet-install.sh -c 3.1 && rm -rf dotnet-install.sh
-
 
 #Install AgentDVR dependicies
 RUN apt-get update
